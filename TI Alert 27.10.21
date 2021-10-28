@@ -1,0 +1,37 @@
+27/10/21
+Threat Intelligence Alert: Vulnerability in BQE Web Suite Billing App Used to Deploy Ransomware
+Key Details
+CVE-2021-42258
+
+Disclosure Date – October 25th, 2021
+
+CVSS Score – N/A
+
+Affected Products – Versions before BQE WebSuite 2021 22.0.9.1
+
+Exploit Released – Yes
+
+Patch Available – Yes
+
+Summary
+On the 22nd of October, researchers from Huntress released a threat advisory for a Remote Code Execution vulnerability found in BillQuick’s Web Suite (a time and billing system from BQE Software). Threat actors have been successfully exploiting this vulnerability in the wild via an SQL-injection attack to gain initial access to BillQuick’s clients, a US engineering company has already been confirmed as a victim. It is believed that BillQuick has a customer base of around 400,000 users worldwide.
+
+The implications of the exploitation of this vulnerability include:
+
+Threat actors can access customers’ BillQuick data.
+Threat actors can gain remote code execution and run malicious commands on customer Windows Servers (hence being used to install ransomware).
+Mitigation
+This vulnerability has been patched in WebSuite version 22.0.9.1, although Huntress are still verifying that the changes made in this update patch the vulnerability effectively.
+
+NCC Group suggest that our customers using this product update to the latest BQE WebSuite version as soon as possible.
+
+
+NCC Group Actions
+The NCC Group Threat Intelligence team is actively monitoring for further reports relating to this CVE. As there are a number of exploitation methods for this vulnerability, we have created an endpoint detection rule which looks for CMD.exe and Powershell.exe child processes spawned by the BillQuick.exe process.
+
+Sources
+http://billquick.net/download/Support_Download/BQWS2021Upgrade/WebSuite2021LogFile_9_1.pdf
+
+https://www.huntress.com/blog/threat-advisory-hackers-are-exploiting-a-vulnerability-in-popular-billing-software-to-deploy-ransomware
+
+https://threatpost.com/bqe-web-suite-billing-app-ransomware/175720/
