@@ -1,0 +1,26 @@
+Key Details
+
+CVE-2021-44228
+Disclosure Date – 9th December 2021
+CVSS Score – 10.0
+Affected Products – Apache log4j2 (Apache Struts2, Apache Solr, Apache Druid, Apache Flink, etc).
+Exploit Released – Yes
+Patch Available – Yes
+
+Summary
+Reports regarding a new zero-day vulnerability in the Apache Log4j Java-based logging library were released on the 9th of December. A proof-of-concept has already been released for this vulnerability that can result in remote code execution for both home users and enterprises without the need for authentication.
+Any form of enterprise and cloud software is likely vulnerable to remote code execution via this exploit, including for example, Steam, Minecraft and Apple iCloud. This vulnerability has been assigned CVE-2021-44228 and is said to affect the default configurations of several Apache frameworks, including but not limited to Apache Struts2, Apache Solr and Apache Druid.
+We have identified multiple reports of mass scanning for systems vulnerable to CVE-2021-44228. 
+
+Mitigation
+Apache released a patch for this CVE on the 7th of December, however security researchers have already discovered a bypass, NCC Group urges our customers to upgrade to log4j-2.15.0-rc2: https://github.com/apache/logging-log4j2/releases/tag/log4j-2.15.0-rc2 
+
+NCC Group Actions
+The NCC Group detection engineers have investigated the traffic that is generated when the vulnerability is exploited and created network detection rules to monitor for this type of traffic. The current coverage is currently limited to network detection only.
+Our Threat Intelligence Team is continuing to monitor for additional intelligence relating to this vulnerability. 
+
+Sources
+https://logging.apache.org/log4j/2.x/security.html
+https://www.cyberkendra.com/2021/12/worst-log4j-rce-zeroday-dropped-on.html?m=1 
+https://www.bleepingcomputer.com/news/security/new-zero-day-exploit-for-log4j-java-library-is-an-enterprise-nightmare/ 
+https://www.lunasec.io/docs/blog/log4j-zero-day/ 
