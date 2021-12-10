@@ -1,0 +1,33 @@
+High Volume of Attacks Reported Against WordPress Sites Targeting Vulnerable Plugins 
+
+Key Details
+
+CVE N/A
+Disclosure Date – 9th December 2021
+CVSS Score – N/A
+Affected Products –WordPress websites (four WordPress plugins and fifteen Epsilon Framework themes)
+Exploit Released – Yes
+Patch Available – Yes (One vulnerability has no patch available)
+
+Summary
+Wordfence security analysts have reported a large influx of attacks on over 1.6 million WordPress websites in the past week, the traffic of which originates from 16,000 separate IP addresses. The threat actors have been spotted targeting four WordPress plugins and fifteen Epsilon Framework themes. Of these plugins, some received a patch as far back as 3 years ago, whereas some have only been patched this week, with one outlier that has not yet received a patch: NatureMag Lite.
+Affected WordPress plugins:
+
+PublishPress Capabilities, Kiwi Social Plugin, Pinterest Automatic and WordPress Automatic
+Affected Epsilon Framework themes:
+
+Shapely, NewsMag, Activello, Illdy, Allegiant, Newspaper X, Pixova Lite, Brilliance, MedZone Lite, Regina Lite, Transcend, Affluent, Bonkers, Antreas and NatureMag Lite (for which no patch is available).
+According to Wordfence, "In most cases, the attackers are updating the users_can_register option to enabled and setting the default_role option to administrator.” This in turn allows threat actors to perform privilege escalation to administrator on the targeted site, allowing for takeover.
+
+Mitigation
+To verify if your website has been compromised, you can check all of the user accounts and see if there are any new and unexpected additions. If there are, NCC Group suggests that you immediately remove them.
+Following this, you can review the settings of the site on “http://yoursite[.]com/wp-admin/options-general.php” and check the “Membership” and default user role settings. Ensure that the default role is not administrator. 
+
+NCC Group recommends that any WordPress users update all their plugins as soon as possible, though NatureMag Lite should be uninstalled as soon as possible and should only be reinstalled when a patch is available.
+
+NCC Group Actions
+The NCC Group Threat Intelligence team will continue to monitor for further reports and will update this alert if further intelligence is identified. 
+
+Sources
+https://www.wordfence.com/blog/2021/12/massive-wordpress-attack-campaign/
+https://www.bleepingcomputer.com/news/security/massive-attack-against-16-million-wordpress-sites-underway/
