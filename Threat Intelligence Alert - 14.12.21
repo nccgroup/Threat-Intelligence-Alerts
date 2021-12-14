@@ -1,0 +1,22 @@
+Threat Intelligence Alert: 
+Googles 17th Chrome 0-Day Fix Since the Start of the Year
+
+Key Details
+CVE-2021-4102
+Disclosure Date – 13th December 2021
+CVSS Score – N/A
+Affected Products – Chromium Browsers
+Exploit Released – Yes
+Patch Available – Yes
+
+Summary
+On the 13th of December, Google released emergency security updates for another user-after-free flaw (as well as four other less critical vulnerabilities) that was initially reported by a security researcher on the 9th of December and is currently being exploited in the wild. This critical zero-day (tracked as CVE-2021-4102) exists in the V8 JavaScript and WebAssembly engine and could allow threat actors to perform arbitrary code execution or data corruption.
+
+Mitigation
+These 5 vulnerabilities can be mitigated via the installation of the most recent stable channel Chrome version: https://chromereleases.googleblog.com/2021/12/stable-channel-update-for-desktop_13.html 
+
+NCC Group Actions
+The NCC Group Threat Intelligence team will continue to monitor for further reports and will update this alert in the eventuality of further news. We will also be looking out for IOCs pertaining to the exploitation of this zero-day and will add them to our threat intelligence platform.
+
+Sources
+https://securityaffairs.co/wordpress/125615/security/google-zero-day-chrome.html?utm_source=feedly&utm_medium=rss&utm_campaign=google-zero-day-chrome
