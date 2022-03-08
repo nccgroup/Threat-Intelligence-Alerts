@@ -1,0 +1,28 @@
+Threat Intelligence Alert: Emergency Firefox Update for Two Zero-Days Being Exploited in the Wild
+Key Details
+CVE-2022-26485 and CVE-2022-26486 
+Disclosure Date – 5th March 2022
+CVSS Score – Not yet released
+Exploit Released - Yes
+Patch Available –Yes
+Summary
+Over the weekend, an emergency security update was issued for Firefox by Mozilla regarding two zero-day vulnerabilities being exploited in the wild. Both CVEs are use-after-free issues allowing hackers to potentially access and use memory recently freed by the program, and are considered as critically severe. 
+CVE-2022-26485 affects the Extensible Stylesheet Language Transformation (XSLT) parameter processing and can be exploited to allow remote code execution within the context of the application. CVE-2022-26486 impacts the WebGPU IPC Framework and enables threat actors to perform a sandbox escape.
+Mozilla stated, "we have had reports of attacks in the wild" weaponising the two vulnerabilities, however the company have not shared any technical specifics around the intrusions or the identities of the malicious actors involved. Mozilla are likely waiting until a vast majority of systems are patched.
+Mitigation
+Both issues were resolved in the releases of Firefox 97.0.2, Firefox ESR 91.6.1, Firefox for Android 97.3.0, and Focus 97.3.0. To update your Firefox browser:
+1.	Click the menu button on the right side of the toolbar
+2.	Click Help and then About Firefox
+3.	Then Firefox will automatically check for and install any available updates. 
+NCC Group Actions
+NCC Group have added these CVE’s to our threat intelligence platform and will continue to track developments from Mozilla. Should there be any developments (regarding relevant technical details of this exploit or the emergence of additional vulnerabilities for example), we will update this alert accordingly.
+ 
+
+
+Sources
+https://www.securityweek.com/emergency-firefox-update-patches-two-actively-exploited-zero-day-vulnerabilities 
+https://www.mozilla.org/en-US/security/advisories/mfsa2022-09/ 
+https://support.mozilla.org/en-US/kb/update-firefox-latest-release
+https://thehackernews.com/2022/03/2-new-mozilla-firefox-0-day-bugs-under.html
+https://www.helpnetsecurity.com/2022/03/07/cve-2022-26485-cve-2022-26486/
+ 
