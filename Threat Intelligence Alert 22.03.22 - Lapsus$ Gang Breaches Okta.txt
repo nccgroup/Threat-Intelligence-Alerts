@@ -1,0 +1,26 @@
+Threat Intelligence Alert: Lapsus$ Gang Breaches Okta
+
+Key Details
+Disclosure Date – 22th March 2022
+
+TLDR: Situation
+•	The threat group Lapsus$ have claimed that they have successfully compromised the global authentication and identity access management firm ‘Okta’.
+•	The group claim that as part of the compromise, they have focussed efforts on information relating to Okta’s client base of approximately 15,000 customers.
+•	As of yet, there has been no data leaked by Lapsus$ (as at 10:00 UTC 22/03/2022).
+•	There are currently no details available of the Okta customers that could have been impacted.
+
+Who are Lapsus$?
+The Lapsus$ crime group came onto the scene towards the close of 2021 and have already been consistently making headlines as a result of the plethora of high-profile victims. One of the most notable being the attack on NVIDIA wherein the gang leaked the credentials of more than 71,000 employees, various intellectual property (including DLSS code) and supposed products that are to hit the market in the future. Another headlining attack was the Samsung data breach performed by Lapsus$, where they exfiltrated biometric authentication information and, yet again, intellectual property such as 190GB of source code from both Samsung and Qualcomm (one of Samsung’s suppliers).
+It is clear from the high-profile nature of these breaches, as well as the type of data stolen, that Lapsus$ are a technically capable and highly targeted ransomware gang. In fact, they have begun expressing interest in hiring willing insider threats at a variety of technology companies including telecommunications, Internet Service Providers, and software/gaming companies to ascertain initial access vectors into their targets via remote VPN access. According to Security Affairs, they have already experienced success in their recruitment of rogue employees to facilitate access to victim networks, perhaps catalysing a new trend in the ransomware threat landscape .
+
+Focus on the Supply Chain
+The Lapsus$ ransomware gang appear to be exhibiting a specific interest in supply chain compromises with the theft of source code / associated code signing certificates for a wider attack surface. Using this tactic, they can sign their malware to appear legitimate to victim organisations, thus bypassing the myriad of security solutions that the victims may have in place. In fact, in the case of NVIDIA two code signing certificates were stolen which, although they were outdated, Windows recognised as legitimate and thus permitted trojanised driver updates .
+
+Okta Leak
+In the early hours of the morning of Tuesday 22nd March, Lapsus$ claimed on their Telegram page that they had successfully compromised the internal environment of ‘Okta’, a leading Identity Access Management (IAM) and authentication provider. Although we cannot confirm the validity of this claim (as only Lapsus$ themselves have reported it), the screenshots that they have provided strongly implies that they have gained access to Okta systems. 
+In the group’s message on Telegram, it appears that the group infiltrated Okta as early as the 21st of January 2022. There is also a clear message from Lapsus$ that their efforts were focussed on Okta’s customer base, of which they have over 15,000.
+
+What are NCC Group doing to support you?
+NCC Group’s threat intelligence team are continuing to monitor the situation, with particular focus on the identification of any data that might have been exfiltrated as a result of this incident.
+Additionally, the security analysts in the SOC are actively threat hunting customer environments that are known to use Okta services. We in the threat intelligence team will continue to hunt for and ingest related IoC’s into MISP and communications between the SOC and TI will persist until the incident is mitigated.
+ 
