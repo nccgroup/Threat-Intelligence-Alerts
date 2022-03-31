@@ -1,0 +1,101 @@
+Threat Intelligence Alert – 31.03.22: Spring Core RCE aka Spring4Shell
+
+We are issuing this advisory to all customers to ensure awareness and advise that required mitigation actions are carried out where necessary. 
+On March 29th, 2022, a set of Tweets (now deleted) were published from a Chinese Twitter account showing screenshots of a new POC 0-day exploit
+in the popular Java library Spring Core, however we still don't have all the details around how widespread or exploitable this is. 
+Though Spring have noted on their blog that if the application is deployed as a Spring Boot executable jar (which is the default), then it is not vulnerable
+to the exploit, but to reiterate in the early days of this exploit we cannot be sure how far reaching the exploit can be. Therefore, remain vigilant for the
+release of a patch to mitigate future use cases for this exploit.
+
+There is not currently a CVE associated with this vulnerability, but it is being referred to as "Spring4Shell" amongst the security community.
+
+Key Details
+
+CVE Currently Unassigned
+Disclosure Date – 31st March 2022
+CVSS Score – Unknown
+Affected Products – Spring Core (Framework for building modern Java-based enterprise applications)
+Exploit Released – Yes
+Patch Available – No
+
+Summary
+The spring framework is an open-source framework that offers default converters for building or simplifying enterprise Java Applications. 
+This vulnerability is found in the JDK version of Spring Core Framework and makes it vulnerable for executing code remotely due to a bypass for CVE-2010-1622.
+It is confirmed that this vulnerability leverages class injection as compared to a separate, recently released, Spring Cloud Function vulnerability 
+(CVE-2022-22964).
+ 
+Spring4Shell is a Remote Code Execution (RCE) vulnerability. Twitter users have taken to calling this vulnerability Spring4Shell due to its similarity
+to the Log4Shell zero-day vulnerability. This name also helps to distinguish Spring4Shell from other Spring RCE vulnerabilities such as the Spring Cloud Function
+library.
+A vulnerable application has been publicly shared to help researchers determine if payloads being tested will successfully exploit the vulnerability. 
+This vulnerable application can be found at: https://github.com/lunasec-io/spring-rce-vulnerable-app
+
+The following GitHub page has details of the POC code
+https://github.com/craig/SpringCore0day 
+
+The prerequisites:
+
+– Uses Spring Beans
+
+– Uses Spring Parameter Binding
+
+– Spring Parameter Binding must be configured to use a non-basic parameter type, such as POJOs.
+
+It appears that this could be a case of "How can I make an app that's exploitable" vs. "How can I exploit this thing that exists?"
+
+Detection
+The vulnerability only affects the JDK versions 9+ where Spring Core is in use. To determine the version of the JDK that is running in an environment, 
+the following command can be run in a terminal:
+
+javac –version
+
+All released versions of the Spring Core module are currently vulnerable. One method of determining if the Spring Core module is in use in an environment is to 
+use the Maven dependency plugin and to run:
+
+mvn dependency: tree
+
+Florian Roth of Nextron Systems has developed Yara rules that, if used, may determine if a successful exploitation of the vulnerability has taken place. These rules are available at signature-base/expl_spring4shell.yar at 
+master · Neo23x0/signature-base (github.com).
+
+Mitigation
+As there is currently no official patch available, the current recommended approach for mitigation is to blacklist the vulnerable patterns. In the Spring Framework, DataBinder has the functionality that allows you to blacklist 
+certain patterns (as shown below).
+
+One method to do this is to create a ControllerAdvice component, which is a Spring component shared across Controllers and adding the vulnerable patterns to the deny list, as shown below:
+
+1.	import org.springframework.core.Ordered;
+2.	import org.springframework.core.annotation.Order;
+3.	import org.springframework.web.bind.WebDataBinder;
+4.	import org.springframework.web.bind.annotation.ControllerAdvice;
+5.	import org.springframework.web.bind.annotation.InitBinder;
+6.	 
+7.	@ControllerAdvice
+8.	 
+9.	@Order(10000)
+10.	 
+11.	public class BinderControllerAdvice {
+12.	 
+13.	    @InitBinder
+14.	 
+15.	    public void setAllowedFields(WebDataBinder dataBinder) {
+16.	 
+17.	         String[] denylist = new String[]{"class.*", "Class.*", "*.class.*", "*.Class.*"};
+18.	 
+19.	         dataBinder.setDisallowedFields(denylist);
+20.	 
+21.	    }22.	 23.	}
+
+Another option is to add a method to a controller and inject the mitigations:
+ 
+Please note, the above recommendations circulating are theoretical and have not been thoroughly tested. 
+
+NCC Group Actions
+Our threat intelligence team have provided temporary mitigations for the above vulnerability and upon the release of any additional information (CVSS Score and patches), we will update this alert as soon as possible. 
+Within the detection section, concerned clients can check for their Java version and if Spring Core is running in an environment by following the instructions provided. Further detection measures are currently being developed 
+and if any IoC’s related to the exploitation of Spring4Shell are released, NCC Group will be add them to our threat intelligence platform to facilitate additional detection on customer environments.
+
+Sources
+https://www.praetorian.com/blog/spring-core-jdk9-rce/
+https://www.lunasec.io/docs/blog/spring-rce-vulnerabilities/#exploit-scenario-overview
+https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21964
+https://twitter.com/bytehx343/status/1509034539330732033 
